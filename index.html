@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introducción a Ciencia de Datos Por El Jonas</title>
+    <title>Introducción a Ciencia de Datos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #a5f1eb;
+            background-color: #bbf0ab;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
         }
         header {
             background-color: #4CAF50;
@@ -19,22 +22,38 @@
             padding: 10px 20px;
             text-align: center;
         }
+        main {
+            flex: 1; 
+            padding: 20px;
+        }
         section {
-            margin: 20px;
+            margin: 20px 0;
             padding: 20px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+        section h2 {
+            margin: 0;
             color: #4CAF50;
+            cursor: pointer; 
+        }
+        section p {
+            margin-top: 10px;
+            display: none; 
+        }
+        section.expanded p {
+            display: block; 
         }
         footer {
-            text-align: center;
-            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
-            margin-top: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed; 
+            bottom: 0;
+            width: 100%; 
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -44,26 +63,32 @@
     </header>
     <main>
         <section>
-            <h2>Sección 1: Ciencia de Datos</h2>
+            <h2 onclick="toggleText(this)">Sección 1: Ciencia de Datos</h2>
             <p><strong>¿Qué es ciencia de datos?</strong> La ciencia de datos es un campo interdisciplinario que combina estadística, computación y conocimiento de dominio para extraer información útil de los datos.</p>
             <p><strong>¿Por qué utilizar Python en ciencia de datos?</strong> Python es ampliamente utilizado debido a su simplicidad, gran cantidad de bibliotecas especializadas como Pandas, NumPy y Matplotlib, y una comunidad activa que comparte recursos y soporte.</p>
         </section>
         <section>
-            <h2>Sección 2: Pandas</h2>
-            <p><strong>¿Qué es Pandas?</strong> Pandas es una biblioteca de Python que facilita el análisis y la manipulación de datos.</p>
+            <h2 onclick="toggleText(this)">Sección 2: Pandas</h2>
+            <p><strong>¿Qué es Pandas?</strong> La biblioteca de software de código abierto Pandas está diseñada específicamente para la manipulación y el análisis de datos en el lenguaje Python.</p>
             <p><strong>¿Cómo funciona?</strong> Pandas utiliza estructuras de datos como Series y DataFrames que permiten trabajar con datos tabulares y realizar operaciones complejas con facilidad.</p>
             <p><strong>Ventajas:</strong> Sencillez en la manipulación de datos, soporte para trabajar con datos faltantes, e integración con otras bibliotecas.</p>
             <p><strong>Cómo utilizan Pandas los científicos de datos:</strong> Los científicos de datos usan Pandas para limpiar datos, realizar análisis exploratorios y preparar conjuntos de datos para modelado.</p>
             <p><strong>Alternativas similares:</strong> Algunas alternativas incluyen NumPy, Dask, y PySpark.</p>
         </section>
         <section>
-            <h2>Sección 3: Link al programa Colab</h2>
+            <h2 onclick="toggleText(this)">Sección 3: Link al programa Colab</h2>
             <p>Este link abre un archivo en Google Colab donde se imprime "HOLA MUNDO".</p>
-            <a href="TU_LINK_AQUI" target="_blank">Abrir Programa Colab</a>
+            <a href="https://colab.research.google.com/drive/15Mu1xGowgusyHRRUJvPMnl2ozQu4hg3g?usp=drive_link" target="_blank">Abrir Programa Colab</a>
         </section>
     </main>
     <footer>
         <p>&copy; CIENCIA DE DATOS I - MARTÍNEZ COSÍO JOSÉ ALFREDO</p>
     </footer>
+    <script>
+        function toggleText(header) {
+            const section = header.parentElement;
+            section.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
